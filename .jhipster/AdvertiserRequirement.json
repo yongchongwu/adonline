@@ -1,0 +1,103 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "masterId",
+            "fieldType": "Long",
+            "javadoc": "广告素材ID",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "minAmount",
+            "javadoc": "最小金额",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "meid",
+            "javadoc": "门店ID列表",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "orderNo",
+            "javadoc": "订单尾号列表",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "wuid",
+            "javadoc": "用户ID列表",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "javadoc": "城市ID列表",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "category",
+            "javadoc": "行业分类列表",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "javadoc": "日期列表",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "time",
+            "javadoc": "时间列表",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "clicked",
+            "javadoc": "点击后是否隐藏",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "overAvgAmount",
+            "javadoc": "支付金额是否高于客单价",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "os",
+            "javadoc": "操作系统[Android, iOS]",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "network",
+            "javadoc": "网络类型",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "sex",
+            "javadoc": "性别[男,女]",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "tradeType",
+            "javadoc": "交易类型",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171026080941",
+    "dto": "no",
+    "service": "no",
+    "javadoc": "广告规则列表或广告主定向要求",
+    "entityTableName": "ads_advertiser_requirement",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

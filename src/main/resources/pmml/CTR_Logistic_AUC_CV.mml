@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_3" version="4.3">
+	<Header>
+		<Application name="JPMML-SparkML-Package" version="1.2-SNAPSHOT"/>
+		<Timestamp>2017-11-10T17:09:09Z</Timestamp>
+	</Header>
+	<DataDictionary>
+		<DataField name="industry" optype="categorical" dataType="string">
+			<Value value="1000"/>
+			<Value value="1203"/>
+			<Value value="1204"/>
+			<Value value="1225"/>
+			<Value value="1019"/>
+			<Value value="1020"/>
+			<Value value="1014"/>
+			<Value value="1"/>
+			<Value value="1219"/>
+			<Value value="1115"/>
+			<Value value="1220"/>
+			<Value value="1205"/>
+			<Value value="1101"/>
+			<Value value="1015"/>
+			<Value value="1109"/>
+			<Value value="0"/>
+			<Value value="1214"/>
+			<Value value="1207"/>
+			<Value value="1405"/>
+			<Value value="1112"/>
+			<Value value="1221"/>
+			<Value value="1206"/>
+			<Value value="1308"/>
+			<Value value="1224"/>
+			<Value value="1314"/>
+			<Value value="1216"/>
+			<Value value="1111"/>
+			<Value value="1104"/>
+			<Value value="1222"/>
+			<Value value="1211"/>
+			<Value value="1208"/>
+			<Value value="1311"/>
+			<Value value="1307"/>
+			<Value value="1402"/>
+			<Value value="1301"/>
+		</DataField>
+		<DataField name="payment_method" optype="categorical" dataType="string">
+			<Value value="4JBo"/>
+			<Value value="zO8g"/>
+			<Value value="zLGr"/>
+		</DataField>
+		<DataField name="card_kind" optype="categorical" dataType="string">
+			<Value value="DEBIT"/>
+			<Value value="CREDIT"/>
+		</DataField>
+		<DataField name="network" optype="categorical" dataType="string">
+			<Value value="4g"/>
+			<Value value="3g+"/>
+			<Value value="unknown"/>
+			<Value value="wifi"/>
+			<Value value="2g"/>
+			<Value value="3g"/>
+			<Value value="edge"/>
+		</DataField>
+		<DataField name="30_ctr" optype="continuous" dataType="double"/>
+		<DataField name="industry_3_ctr" optype="continuous" dataType="double"/>
+		<DataField name="industry_8_ctr" optype="continuous" dataType="double"/>
+		<DataField name="industry_15_ctr" optype="continuous" dataType="double"/>
+		<DataField name="label" optype="categorical" dataType="double">
+			<Value value="0"/>
+			<Value value="1"/>
+		</DataField>
+	</DataDictionary>
+	<TransformationDictionary>
+		<DerivedField name="industry=1115" optype="continuous" dataType="double">
+			<NormDiscrete field="industry" value="1115"/>
+		</DerivedField>
+		<DerivedField name="standardized[9]" optype="continuous" dataType="double">
+			<Apply function="*">
+				<Apply function="-">
+					<FieldRef field="industry=1115"/>
+					<Constant dataType="double">0.009163421438962469</Constant>
+				</Apply>
+				<Constant dataType="double">10.49470151809019</Constant>
+			</Apply>
+		</DerivedField>
+		<DerivedField name="payment_method=4JBo" optype="continuous" dataType="double">
+			<NormDiscrete field="payment_method" value="4JBo"/>
+		</DerivedField>
+		<DerivedField name="standardized[57]" optype="continuous" dataType="double">
+			<Apply function="*">
+				<Apply function="-">
+					<FieldRef field="payment_method=4JBo"/>
+					<Constant dataType="double">0.8147376986891084</Constant>
+				</Apply>
+				<Constant dataType="double">2.5739345762914385</Constant>
+			</Apply>
+		</DerivedField>
+		<DerivedField name="payment_method=zO8g" optype="continuous" dataType="double">
+			<NormDiscrete field="payment_method" value="zO8g"/>
+		</DerivedField>
+		<DerivedField name="standardized[58]" optype="continuous" dataType="double">
+			<Apply function="*">
+				<Apply function="-">
+					<FieldRef field="payment_method=zO8g"/>
+					<Constant dataType="double">0.17296337785736549</Constant>
+				</Apply>
+				<Constant dataType="double">2.64399413565414</Constant>
+			</Apply>
+		</DerivedField>
+		<DerivedField name="card_kind=DEBIT" optype="continuous" dataType="double">
+			<NormDiscrete field="card_kind" value="DEBIT"/>
+		</DerivedField>
+		<DerivedField name="standardized[59]" optype="continuous" dataType="double">
+			<Apply function="*">
+				<Apply function="-">
+					<FieldRef field="card_kind=DEBIT"/>
+					<Constant dataType="double">0.8364758288533902</Constant>
+				</Apply>
+				<Constant dataType="double">2.7038479213254445</Constant>
+			</Apply>
+		</DerivedField>
+		<DerivedField name="network=4g" optype="continuous" dataType="double">
+			<NormDiscrete field="network" value="4g"/>
+		</DerivedField>
+		<DerivedField name="standardized[60]" optype="continuous" dataType="double">
+			<Apply function="*">
+				<Apply function="-">
+					<FieldRef field="network=4g"/>
+					<Constant dataType="double">0.34013208175629783</Constant>
+				</Apply>
+				<Constant dataType="double">2.1108026537335736</Constant>
+			</Apply>
+		</DerivedField>
+		<DerivedField name="network=3g+" optype="continuous" dataType="double">
+			<NormDiscrete field="network" value="3g+"/>
+		</DerivedField>
+		<DerivedField name="standardized[61]" optype="continuous" dataType="double">
+			<Apply function="*">
+				<Apply function="-">
+					<FieldRef field="network=3g+"/>
+					<Constant dataType="double">0.31387170978476303</Constant>
+				</Apply>
+				<Constant dataType="double">2.1548705577702356</Constant>
+			</Apply>
+		</DerivedField>
+		<DerivedField name="standardized[83]" optype="continuous" dataType="double">
+			<Apply function="*">
+				<Apply function="-">
+					<FieldRef field="30_ctr"/>
+					<Constant dataType="double">0.07943892867637697</Constant>
+				</Apply>
+				<Constant dataType="double">14.727965444984166</Constant>
+			</Apply>
+		</DerivedField>
+		<DerivedField name="standardized[84]" optype="continuous" dataType="double">
+			<Apply function="*">
+				<Apply function="-">
+					<FieldRef field="industry_3_ctr"/>
+					<Constant dataType="double">0.045159738375163905</Constant>
+				</Apply>
+				<Constant dataType="double">133.82842882855329</Constant>
+			</Apply>
+		</DerivedField>
+		<DerivedField name="standardized[85]" optype="continuous" dataType="double">
+			<Apply function="*">
+				<Apply function="-">
+					<FieldRef field="industry_8_ctr"/>
+					<Constant dataType="double">0.04702501159521272</Constant>
+				</Apply>
+				<Constant dataType="double">147.21271573384593</Constant>
+			</Apply>
+		</DerivedField>
+		<DerivedField name="standardized[86]" optype="continuous" dataType="double">
+			<Apply function="*">
+				<Apply function="-">
+					<FieldRef field="industry_15_ctr"/>
+					<Constant dataType="double">0.0469879669997145</Constant>
+				</Apply>
+				<Constant dataType="double">134.4949740589167</Constant>
+			</Apply>
+		</DerivedField>
+	</TransformationDictionary>
+	<RegressionModel functionName="classification" normalizationMethod="logit">
+		<MiningSchema>
+			<MiningField name="label" usageType="target"/>
+			<MiningField name="30_ctr"/>
+			<MiningField name="industry_3_ctr"/>
+			<MiningField name="industry_8_ctr"/>
+			<MiningField name="industry_15_ctr"/>
+			<MiningField name="industry"/>
+			<MiningField name="payment_method"/>
+			<MiningField name="card_kind"/>
+			<MiningField name="network"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="pmml(prediction)" optype="categorical" dataType="double" feature="predictedValue"/>
+			<OutputField name="prediction" optype="categorical" dataType="double" feature="transformedValue">
+				<MapValues outputColumn="output">
+					<FieldColumnPair field="pmml(prediction)" column="input"/>
+					<InlineTable>
+						<row>
+							<input xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</input>
+							<output xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</output>
+						</row>
+						<row>
+							<input xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</input>
+							<output xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</output>
+						</row>
+					</InlineTable>
+				</MapValues>
+			</OutputField>
+			<OutputField name="probability(0)" optype="continuous" dataType="double" feature="probability" value="0"/>
+			<OutputField name="probability(1)" optype="continuous" dataType="double" feature="probability" value="1"/>
+		</Output>
+		<RegressionTable intercept="-0.1417899683768145" targetCategory="1">
+			<NumericPredictor name="standardized[9]" coefficient="-0.010875882614226444"/>
+			<NumericPredictor name="standardized[57]" coefficient="-0.002632361000937861"/>
+			<NumericPredictor name="standardized[58]" coefficient="0.01795275080152228"/>
+			<NumericPredictor name="standardized[59]" coefficient="-0.01391123727377106"/>
+			<NumericPredictor name="standardized[60]" coefficient="0.05864544874931539"/>
+			<NumericPredictor name="standardized[61]" coefficient="-0.022384464975505947"/>
+			<NumericPredictor name="standardized[83]" coefficient="0.7613497769262999"/>
+			<NumericPredictor name="standardized[84]" coefficient="9.127888484692408E-4"/>
+			<NumericPredictor name="standardized[85]" coefficient="0.05539645697435327"/>
+			<NumericPredictor name="standardized[86]" coefficient="0.002277863085996069"/>
+		</RegressionTable>
+		<RegressionTable intercept="0.0" targetCategory="0"/>
+	</RegressionModel>
+</PMML>

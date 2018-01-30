@@ -1,0 +1,35 @@
+{
+    "adonlineApp": {
+        "advertiserRequirement" : {
+            "home": {
+                "title": "Advertiser Requirements",
+                "createLabel": "Create a new Advertiser Requirement",
+                "createOrEditLabel": "Create or edit a Advertiser Requirement"
+            },
+            "created": "A new Advertiser Requirement is created with identifier {{ param }}",
+            "updated": "A Advertiser Requirement is updated with identifier {{ param }}",
+            "deleted": "A Advertiser Requirement is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Advertiser Requirement {{ id }}?"
+            },
+            "detail": {
+                "title": "Advertiser Requirement"
+            },
+            "masterId": "Master Id",
+            "minAmount": "Min Amount",
+            "meid": "Meid",
+            "orderNo": "Order No",
+            "wuid": "Wuid",
+            "city": "City",
+            "category": "Category",
+            "date": "Date",
+            "time": "Time",
+            "clicked": "Clicked",
+            "overAvgAmount": "Over Avg Amount",
+            "os": "Os",
+            "network": "Network",
+            "sex": "Sex",
+            "tradeType": "Trade Type"
+        }
+    }
+}

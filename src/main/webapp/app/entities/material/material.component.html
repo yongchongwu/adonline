@@ -1,0 +1,80 @@
+<div>
+    <h2>
+        <span jhiTranslate="adonlineApp.material.home.title">Materials</span>
+        <button class="btn btn-primary float-right jh-create-entity create-material" [routerLink]="['/', { outlets: { popup: ['material-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="adonlineApp.material.home.createLabel">
+            Create new Material
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="materials">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="position"><span jhiTranslate="adonlineApp.material.position">Position</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="tags"><span jhiTranslate="adonlineApp.material.tags">Tags</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startDate"><span jhiTranslate="adonlineApp.material.startDate">Start Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="endDate"><span jhiTranslate="adonlineApp.material.endDate">End Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="imgUrl"><span jhiTranslate="adonlineApp.material.imgUrl">Img Url</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="hrefUrl"><span jhiTranslate="adonlineApp.material.hrefUrl">Href Url</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="customerPrice"><span jhiTranslate="adonlineApp.material.customerPrice">Customer Price</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="copy"><span jhiTranslate="adonlineApp.material.copy">Copy</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="collectDate"><span jhiTranslate="adonlineApp.material.collectDate">Collect Date</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let material of materials ;trackBy: trackId">
+                <td><a [routerLink]="['../material', material.id ]">{{material.id}}</a></td>
+                <td>{{material.position}}</td>
+                <td>{{material.tags}}</td>
+                <td>{{material.startDate}}</td>
+                <td>{{material.endDate}}</td>
+                <td>{{material.imgUrl}}</td>
+                <td>{{material.hrefUrl}}</td>
+                <td>{{material.customerPrice}}</td>
+                <td>{{material.copy}}</td>
+                <td>{{material.collectDate}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../material', material.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'material/'+ material.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'material/'+ material.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="materials && materials.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

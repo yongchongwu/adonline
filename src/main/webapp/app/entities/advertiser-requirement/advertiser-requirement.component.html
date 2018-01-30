@@ -1,0 +1,92 @@
+<div>
+    <h2>
+        <span jhiTranslate="adonlineApp.advertiserRequirement.home.title">Advertiser Requirements</span>
+        <button class="btn btn-primary float-right jh-create-entity create-advertiser-requirement" [routerLink]="['/', { outlets: { popup: ['advertiser-requirement-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="adonlineApp.advertiserRequirement.home.createLabel">
+            Create new Advertiser Requirement
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="advertiserRequirements">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="masterId"><span jhiTranslate="adonlineApp.advertiserRequirement.masterId">Master Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="minAmount"><span jhiTranslate="adonlineApp.advertiserRequirement.minAmount">Min Amount</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="meid"><span jhiTranslate="adonlineApp.advertiserRequirement.meid">Meid</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="orderNo"><span jhiTranslate="adonlineApp.advertiserRequirement.orderNo">Order No</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="wuid"><span jhiTranslate="adonlineApp.advertiserRequirement.wuid">Wuid</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="city"><span jhiTranslate="adonlineApp.advertiserRequirement.city">City</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="category"><span jhiTranslate="adonlineApp.advertiserRequirement.category">Category</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="date"><span jhiTranslate="adonlineApp.advertiserRequirement.date">Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="time"><span jhiTranslate="adonlineApp.advertiserRequirement.time">Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="clicked"><span jhiTranslate="adonlineApp.advertiserRequirement.clicked">Clicked</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="overAvgAmount"><span jhiTranslate="adonlineApp.advertiserRequirement.overAvgAmount">Over Avg Amount</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="os"><span jhiTranslate="adonlineApp.advertiserRequirement.os">Os</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="network"><span jhiTranslate="adonlineApp.advertiserRequirement.network">Network</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="sex"><span jhiTranslate="adonlineApp.advertiserRequirement.sex">Sex</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="tradeType"><span jhiTranslate="adonlineApp.advertiserRequirement.tradeType">Trade Type</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let advertiserRequirement of advertiserRequirements ;trackBy: trackId">
+                <td><a [routerLink]="['../advertiser-requirement', advertiserRequirement.id ]">{{advertiserRequirement.id}}</a></td>
+                <td>{{advertiserRequirement.masterId}}</td>
+                <td>{{advertiserRequirement.minAmount}}</td>
+                <td>{{advertiserRequirement.meid}}</td>
+                <td>{{advertiserRequirement.orderNo}}</td>
+                <td>{{advertiserRequirement.wuid}}</td>
+                <td>{{advertiserRequirement.city}}</td>
+                <td>{{advertiserRequirement.category}}</td>
+                <td>{{advertiserRequirement.date}}</td>
+                <td>{{advertiserRequirement.time}}</td>
+                <td>{{advertiserRequirement.clicked}}</td>
+                <td>{{advertiserRequirement.overAvgAmount}}</td>
+                <td>{{advertiserRequirement.os}}</td>
+                <td>{{advertiserRequirement.network}}</td>
+                <td>{{advertiserRequirement.sex}}</td>
+                <td>{{advertiserRequirement.tradeType}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../advertiser-requirement', advertiserRequirement.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'advertiser-requirement/'+ advertiserRequirement.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'advertiser-requirement/'+ advertiserRequirement.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="advertiserRequirements && advertiserRequirements.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,81 @@
+
+<div *ngIf="advertiserRequirement">
+    <h2><span jhiTranslate="adonlineApp.advertiserRequirement.detail.title">Advertiser Requirement</span> {{advertiserRequirement.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.masterId">Master Id</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.masterId}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.minAmount">Min Amount</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.minAmount}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.meid">Meid</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.meid}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.orderNo">Order No</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.orderNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.wuid">Wuid</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.wuid}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.city">City</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.category">Category</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.category}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.date">Date</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.date}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.time">Time</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.time}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.clicked">Clicked</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.clicked}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.overAvgAmount">Over Avg Amount</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.overAvgAmount}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.os">Os</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.os}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.network">Network</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.network}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.sex">Sex</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.sex}}</span>
+        </dd>
+        <dt><span jhiTranslate="adonlineApp.advertiserRequirement.tradeType">Trade Type</span></dt>
+        <dd>
+            <span>{{advertiserRequirement.tradeType}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'advertiser-requirement/'+ advertiserRequirement.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

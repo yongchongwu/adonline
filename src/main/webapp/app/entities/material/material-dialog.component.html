@@ -1,0 +1,142 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMaterialLabel" jhiTranslate="adonlineApp.material.home.createOrEditLabel">Create or edit a Material</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!material.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="material.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="adonlineApp.material.position" for="field_position">Position</label>
+            <input type="text" class="form-control" name="position" id="field_position"
+                [(ngModel)]="material.position" required maxlength="200" />
+            <div [hidden]="!(editForm.controls.position?.dirty && editForm.controls.position?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.position?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.position?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="adonlineApp.material.tags" for="field_tags">Tags</label>
+            <input type="text" class="form-control" name="tags" id="field_tags"
+                [(ngModel)]="material.tags" required maxlength="200" />
+            <div [hidden]="!(editForm.controls.tags?.dirty && editForm.controls.tags?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.tags?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.tags?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="adonlineApp.material.startDate" for="field_startDate">Start Date</label>
+            <input type="text" class="form-control" name="startDate" id="field_startDate"
+                [(ngModel)]="material.startDate" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.startDate?.dirty && editForm.controls.startDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.startDate?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.startDate?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="adonlineApp.material.endDate" for="field_endDate">End Date</label>
+            <input type="text" class="form-control" name="endDate" id="field_endDate"
+                [(ngModel)]="material.endDate" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.endDate?.dirty && editForm.controls.endDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.endDate?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.endDate?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="adonlineApp.material.imgUrl" for="field_imgUrl">Img Url</label>
+            <input type="text" class="form-control" name="imgUrl" id="field_imgUrl"
+                [(ngModel)]="material.imgUrl" required />
+            <div [hidden]="!(editForm.controls.imgUrl?.dirty && editForm.controls.imgUrl?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.imgUrl?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="adonlineApp.material.hrefUrl" for="field_hrefUrl">Href Url</label>
+            <input type="text" class="form-control" name="hrefUrl" id="field_hrefUrl"
+                [(ngModel)]="material.hrefUrl" required />
+            <div [hidden]="!(editForm.controls.hrefUrl?.dirty && editForm.controls.hrefUrl?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.hrefUrl?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="adonlineApp.material.customerPrice" for="field_customerPrice">Customer Price</label>
+            <input type="number" class="form-control" name="customerPrice" id="field_customerPrice"
+                [(ngModel)]="material.customerPrice" required />
+            <div [hidden]="!(editForm.controls.customerPrice?.dirty && editForm.controls.customerPrice?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.customerPrice?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.customerPrice?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="adonlineApp.material.copy" for="field_copy">Copy</label>
+            <input type="text" class="form-control" name="copy" id="field_copy"
+                [(ngModel)]="material.copy"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="adonlineApp.material.collectDate" for="field_collectDate">Collect Date</label>
+            <input type="text" class="form-control" name="collectDate" id="field_collectDate"
+                [(ngModel)]="material.collectDate" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.collectDate?.dirty && editForm.controls.collectDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.collectDate?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.collectDate?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
